@@ -21,6 +21,9 @@ const Library = () => {
     )
 }
 /*
+One way to render multiple compontents:
+ - By wrapping the components into a single div, React renders only that div.
+ - But the Library tags within the div still gets rendered as intended
 <div>
     <Library />,
     <Library />,
