@@ -18,20 +18,32 @@ const Book  = ({title, author, pages}) => {
     )
 }
 
-const Library = ({books}) => {
-    return (
-        <div>
-            {books.map(
-                (book,i) =>
-                    <Book
-                        key = {i}
-                        title = {book.title}
-                        author = {book.author}
-                        pages = {book.pages}
-                    />
-            )}
-        </div>
-    )
+// Updating to an ES6 class
+class Library extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            open: true
+        }
+    }
+    render () {
+        console.log(this.state)
+        const { books } = this.props
+        return (
+            <div>
+                <h1>The library is {this.state.open ? 'open.' : 'closed.'} Books available are:</h1>
+                {books.map(
+                    (book,i) =>
+                        <Book
+                            key = {i}
+                            title = {book.title}
+                            author = {book.author}
+                            pages = {book.pages}
+                        />
+                )}
+            </div>
+        )
+    }
 }
 
 render(
