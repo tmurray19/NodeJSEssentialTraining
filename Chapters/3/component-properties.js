@@ -7,6 +7,7 @@ class Message extends React.Component {
     render(){
         console.log(this.props)
         // JSX curly braces
+        // Double set to pass style object into expression
         return (
             <div>
                 <h1 style = {{ color: this.props.color}}>
@@ -20,6 +21,7 @@ class Message extends React.Component {
     }
 }
 
+// We've defined our objects here, to be passed into the Message component
 ReactDOM.render(
     <Message age = {50} color="fuchsia" msg="How are you?"/>,
     document.getElementById('root')
