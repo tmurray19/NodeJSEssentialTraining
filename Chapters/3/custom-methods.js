@@ -9,13 +9,15 @@ let RunningData = {
 }
 
 class RunningDayCounter extends Component{
+    // We've added two custom methods
+    // Designed to give us a percentage of how close we are to our goal
     getPercent = decimal => {
         return decimal * 100 + '%'
     }
     calcGoalProgress = (total, goal) => {
         return this.getPercent(total/goal)
     }
-
+    // We call this method within the <section>
     render(){
         const { total, sunny, countryside, goal} = this.props
         return(
