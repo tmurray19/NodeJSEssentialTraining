@@ -14,7 +14,7 @@ const Book  = ({title, author, pages, freeBookmark}) => {
             <h2>{title} </h2>
             <h2>By: {author} </h2>
             <p>Pages: {pages} pages</p>
-            <p>Free Bookmark Today: {freeBookmark ? : "Yes!" : "No."}</p>
+            <p>Free Bookmark Today: {freeBookmark ? "Yes!" : "No."}</p>
         </section>
     )
 }
