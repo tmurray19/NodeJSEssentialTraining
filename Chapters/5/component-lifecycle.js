@@ -35,11 +35,15 @@ class Library extends React.Component {
     state = {
         open: true,
         freeBookmark: true,
-        hiring: false
+        hiring: false,
+        data: []
     }
 
     componentDidMount() {
-        console.log("The component mounted successfully.");
+        this.setState({loading: true})
+        fetch('https://hplussport.com/api/products/order/price/sort/asc/qty/1')
+            .then(data => data.json())
+            .then(data => this.setState({data, loading: false}))
     }
 
     componentDidUpdate() {
@@ -58,6 +62,20 @@ class Library extends React.Component {
         return (
             <div>
                 {this.state.hiring ? <Hiring /> : <NotHiring />}
+                {this.state.loading
+                    ? "loading..."
+                    : <div>
+                        {this.state.data.map(product => {
+                            return (
+                                <div key={product.id}>
+                                    <h3>Library Product of the Week!</h3>
+                                    <h4>{product.name}</h4>
+                                    <img alt = {product.name} src ={product.image} height = {100}/>
+                                </div>
+                            )
+                        })}
+                      </div>
+                }
                 <h1>The library is {this.state.open ? 'open.' : 'closed.'} Books available are:</h1>
                 <button onClick = {this.toggleOpenClosed}>Toggle Library</button>
                 {books.map(
