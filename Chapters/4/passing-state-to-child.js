@@ -22,6 +22,8 @@ const Book  = ({title, author, pages, freeBookmark}) => {
 // Updating to an ES6 class
 class Library extends React.Component {
 
+    // Defining the state like this
+    // Allows us to pass the freeBookmark to the Book child Component
     state = {
         open: true,
         freeBookmark: true
