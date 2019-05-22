@@ -19,6 +19,7 @@ const Book  = ({title, author, pages, freeBookmark}) => {
     )
 }
 
+// Define two Components that show a block of text 
 const Hiring = () =>
     <div>
         <p>The Library is hiring. Go to www.library.com/jobs for more.</p>
