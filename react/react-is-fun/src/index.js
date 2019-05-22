@@ -1,12 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+var style = {
+    backgroundColor: 'LightPink',
+    color: 'white',
+    fontFamily: 'Lato'
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// Creating an element in React
+// We wish to create a Header for our page
+// We have specified an element called 'title' to be created
+// It is a Header, H1
+// id of 'title'
+// className of 'header'
+// Uses the css style specified above
+// Its child elements consist of a string, 'Hello, world!'
+const title = React.createElement(
+    'h1',
+    {id: 'title', className: 'header', style: style},
+    'Hello, world!'
+)
+
+// This line tells the browser to render the content on the page
+// We render the title into the element 'root' in the HTML
+// (See the index.html file under public)
+ReactDOM.render(
+    title,
+    document.getElementById('root')
+)
